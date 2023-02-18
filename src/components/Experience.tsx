@@ -1,6 +1,11 @@
 import { OrbitControls, Environment } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
+import { useLayoutEffect } from "react";
 import RenderField from "./webgl/RenderField";
 export default function Experience() {
+	const cam = useThree((state) => state.camera);
+
+	cam.position.set(0, 10, 0);
 	return (
 		<>
 			<OrbitControls
@@ -10,7 +15,6 @@ export default function Experience() {
 				dampingFactor={0.1}
 				rotateSpeed={0.5}
 			/>
-			<camera position={[0, 10, 10]} />
 			<axesHelper />
 			<spotLight position={[0, 10, 0]} />
 			<ambientLight intensity={1.0} />
