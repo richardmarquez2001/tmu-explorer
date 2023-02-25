@@ -1,14 +1,57 @@
-import { OrbitControls, Environment } from "@react-three/drei";
-import { useThree } from "@react-three/fiber";
-import { useLayoutEffect } from "react";
-import RenderField from "./webgl/RenderField";
-export default function Experience() {
-	const cam = useThree((state) => state.camera);
+// Libraries
+import * as TWEEN from "@tweenjs/tween.js";
+import { OrbitControls } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import { useEffect, useRef } from "react";
+import { Vector3 } from "three/src/Three";
 
-	cam.position.set(0, 10, 0);
+// Components
+import RenderField from "./webgl/RenderField";
+
+// Utils
+import {InfoLocations} from "../utils/InfoLocations";
+
+export default function Experience({ location }: { location: string }) {
+	const camPosition = useThree((state) => state.camera);
+	const controlRef = useRef<any>();
+
+	useEffect(() => {
+		// If we have a valid location navigate to it (Check InfoLocations.ts)
+		if (Object.keys(InfoLocations).includes(location)) {
+			const { target, pos } = InfoLocations[location];
+			const keyframe = {
+				position: new Vector3(pos.x, pos.y, pos.z),
+				focalPoint: new Vector3(target.x, target.y, target.z),
+			};
+			// Tween camera position & focal point
+			if (controlRef.current) {
+				const posTween = new TWEEN.Tween(camPosition.position)
+					.to(keyframe.position, 1000)
+					.easing(TWEEN.Easing.Quintic.InOut);
+				const focTween = new TWEEN.Tween(controlRef.current.target)
+					.to(keyframe.focalPoint, 1000)
+					.easing(TWEEN.Easing.Quintic.InOut);
+				focTween.start();
+				posTween.start();
+			}
+		} else {
+			camPosition.position.set(10, 4, 0);
+		}
+	}, [location]);
+
+	useFrame(() => {
+		// Every frame update the tween and orbit controls
+		TWEEN.update();
+		if (controlRef.current) {
+			controlRef.current.update();
+		}
+		// console.log(camPosition.position);
+	});
 	return (
 		<>
 			<OrbitControls
+				makeDefault
+				ref={controlRef}
 				enableDamping
 				enableZoom
 				enableRotate={true}
@@ -17,8 +60,8 @@ export default function Experience() {
 			/>
 			<axesHelper />
 			<spotLight position={[0, 10, 0]} />
-			<ambientLight intensity={1.0} />
-			<RenderField />
+			<ambientLight intensity={1.5} />
+			<RenderField currentLoc={location} />
 		</>
 	);
 }

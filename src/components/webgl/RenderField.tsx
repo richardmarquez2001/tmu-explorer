@@ -1,25 +1,69 @@
-import { useLayoutEffect, useRef } from "react";
-import { Html, useGLTF, useTexture } from "@react-three/drei";
-import { Mesh, Texture } from "three";
+// Libraries
+import * as TWEEN from "@tweenjs/tween.js";
+import { useEffect, useLayoutEffect, useRef } from "react";
+import { useGLTF, useTexture, Text3D } from "@react-three/drei";
+import { BufferGeometry, Mesh, Texture, Vector3 } from "three";
 
-import { GroupProps, ThreeEvent } from "@react-three/fiber";
+// Utils
+import {InfoLocations} from "../../utils/InfoLocations";
 import sources from "../../utils/sources";
 
-export default function RenderField(props: GroupProps) {
+function LocationDisplay({ location }: { location: string }) {
+	const locationRef = useRef<any>();
+	// useEffect(() => {}, [location]);
+
+	useEffect(() => {
+		locationRef.current!.scale.set(1, 0, 0.2);
+
+		if (Object.keys(InfoLocations).includes(location) && locationRef.current) {
+			const { header } = InfoLocations[location];
+			const { x, y, z, rot } = header;
+
+			locationRef.current.position.set(x, y, z);
+			locationRef.current.rotation.set(0, rot ? rot : 0, 0);
+			if (location != "RESET") {
+				const keyframe = new Vector3(1, 1, 0.2);
+				const initTween = new TWEEN.Tween(locationRef.current.scale)
+					.to(keyframe, 1000)
+					.easing(TWEEN.Easing.Quintic.InOut)
+					.delay(500);
+
+				initTween.start();
+			}
+		} else {
+		}
+	}, [location]);
+	return (
+		<>
+			<Text3D
+				ref={locationRef}
+				// position={[locPos.current.x, locPos.current.y, locPos.current.z]}
+				// rotation={[0, locRot.current, 0]}
+				// scale={[1, 0, 0.2]}
+				font="/fonts/oswald-font.json"
+				size={0.75}
+			>
+				{location}
+				<meshStandardMaterial attach="material" color="black" />
+			</Text3D>
+		</>
+	);
+}
+export default function RenderField({ currentLoc }: { currentLoc: string }) {
 	const group = useRef(null);
 	const { nodes } = useGLTF("/rye.glb");
 
 	const nodeObjects = useRef<
 		{ name: string; map: Texture; pos: [x: number, y: number, z: number] }[]
 	>([]);
-
-	const Q13 = useTexture("bakedRight.jpg");
-	const Q12 = useTexture("Q12.jpg");
-	const Q21 = useTexture("Q21.jpg");
-	const Q22Left = useTexture("Q22Left.jpg");
-	const Q22Right = useTexture("Q22Right.jpg");
-	const Q11 = useTexture("Q11.jpg");
-	const Roads = useTexture("Roads.jpg");
+	console.log(nodes);
+	const Q13 = useTexture("/textures/bakedRight.jpg");
+	const Q12 = useTexture("/textures/Q12.jpg");
+	const Q21 = useTexture("/textures/Q21.jpg");
+	const Q22Left = useTexture("/textures/Q22Left.jpg");
+	const Q22Right = useTexture("/textures/Q22Right.jpg");
+	const Q11 = useTexture("/textures/Q11.jpg");
+	const Roads = useTexture("/textures/Roads.jpg");
 
 	nodeObjects.current.push({ name: "RightSection", map: Q13, pos: [10, 0, 0] });
 	nodeObjects.current.push({ name: "Q12", map: Q12, pos: [5, 0, 0] });
@@ -41,28 +85,26 @@ export default function RenderField(props: GroupProps) {
 		Roads.flipY = false;
 	}, []);
 
-	const invokeHoverElemet = (e: ThreeEvent<PointerEvent>, isInit: boolean) => {
-		const name = e.eventObject;
-		console.log(e);
-		let scaleAmount = 1.1;
-		if (!isInit) {
-			scaleAmount = 1;
-		}
-	};
+	const childrenRef = useRef<any>([]);
+
+	useEffect(() => {
+		childrenRef.current = childrenRef.current.slice(0, 90);
+	}, []);
+
 	return (
-		<group ref={group} dispose={null} {...props}>
+		<group ref={group} dispose={null}>
+			<LocationDisplay location={currentLoc} />
 			{/* Interactable objects */}
-			{nodeObjects.current.map((obj) => {
+			{nodeObjects.current.map((obj, i) => {
 				return (
-					<group
-						onPointerOver={(e) => invokeHoverElemet(e, true)}
-						onPointerLeave={(e) => invokeHoverElemet(e, false)}
-					>
-						<Html position={obj.pos}>?</Html>
+					<group>
 						{/* Render mesh */}
-						{nodes[obj.name].children.map((child) => {
+						{nodes[obj.name].children.map((child, i) => {
 							return (
-								<mesh geometry={(child as Mesh).geometry}>
+								<mesh
+									ref={(el) => (childrenRef.current[i] = el)}
+									geometry={(child as Mesh).geometry}
+								>
 									<meshStandardMaterial map={obj.map} />
 								</mesh>
 							);

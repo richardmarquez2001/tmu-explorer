@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap");
+
+html {
+	font-family: "Oswald", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.screen-overlay-left {
+	position: absolute;
+	left: 4rem;
+	height: 100%;
+	z-index: 999;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.screen-overlay-right {
+	position: absolute;
+	right: 2rem;
+	top: 4rem;
+	width: 12%;
+	bottom: 4rem;
+	border-radius: 1rem;
+	z-index: 999;
+	padding: 2rem;
+	background: url("../public/infoBackground.png");
+	font-size: 1.2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.txt-sm {
+	font-size: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.txt-lg {
+	font-size: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.txt-md {
+	font-size: 2rem;
+}
+
+.info-option {
+	text-decoration: none;
+	letter-spacing: 4px;
+}
+
+.info-option:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
