@@ -5,16 +5,23 @@ import { useGLTF, useTexture, Text3D } from "@react-three/drei";
 import { BufferGeometry, Mesh, Texture, Vector3 } from "three";
 
 // Utils
-import {InfoLocations} from "../../utils/InfoLocations";
+import { InfoLocations } from "../../utils/InfoLocations";
 import sources from "../../utils/sources";
 
 function LocationDisplay({ location }: { location: string }) {
 	const locationRef = useRef<any>();
 	// useEffect(() => {}, [location]);
 
-	useEffect(() => {
-		locationRef.current!.scale.set(1, 0, 0.2);
+	const currentTween = useRef<any>();
 
+	const resetElements = () => {
+		locationRef.current!.scale.set(1, 0, 0.2);
+		if (currentTween.current) {
+			currentTween.current.stop();
+		}
+	};
+	useEffect(() => {
+		resetElements();
 		if (Object.keys(InfoLocations).includes(location) && locationRef.current) {
 			const { header } = InfoLocations[location];
 			const { x, y, z, rot } = header;
@@ -23,30 +30,21 @@ function LocationDisplay({ location }: { location: string }) {
 			locationRef.current.rotation.set(0, rot ? rot : 0, 0);
 			if (location != "RESET") {
 				const keyframe = new Vector3(1, 1, 0.2);
-				const initTween = new TWEEN.Tween(locationRef.current.scale)
+				currentTween.current = new TWEEN.Tween(locationRef.current.scale)
 					.to(keyframe, 1000)
 					.easing(TWEEN.Easing.Quintic.InOut)
 					.delay(500);
 
-				initTween.start();
+				currentTween.current.start();
 			}
 		} else {
 		}
 	}, [location]);
 	return (
-		<>
-			<Text3D
-				ref={locationRef}
-				// position={[locPos.current.x, locPos.current.y, locPos.current.z]}
-				// rotation={[0, locRot.current, 0]}
-				// scale={[1, 0, 0.2]}
-				font="/fonts/oswald-font.json"
-				size={0.75}
-			>
-				{location}
-				<meshStandardMaterial attach="material" color="black" />
-			</Text3D>
-		</>
+		<Text3D ref={locationRef} font="/fonts/oswald-font.json" size={0.75}>
+			{location}
+			<meshStandardMaterial attach="material" color="black" />
+		</Text3D>
 	);
 }
 export default function RenderField({ currentLoc }: { currentLoc: string }) {
@@ -56,7 +54,6 @@ export default function RenderField({ currentLoc }: { currentLoc: string }) {
 	const nodeObjects = useRef<
 		{ name: string; map: Texture; pos: [x: number, y: number, z: number] }[]
 	>([]);
-	console.log(nodes);
 	const Q13 = useTexture("/textures/bakedRight.jpg");
 	const Q12 = useTexture("/textures/Q12.jpg");
 	const Q21 = useTexture("/textures/Q21.jpg");
@@ -97,11 +94,12 @@ export default function RenderField({ currentLoc }: { currentLoc: string }) {
 			{/* Interactable objects */}
 			{nodeObjects.current.map((obj, i) => {
 				return (
-					<group>
+					<group key={obj.name + i}>
 						{/* Render mesh */}
 						{nodes[obj.name].children.map((child, i) => {
 							return (
 								<mesh
+									key={child.uuid}
 									ref={(el) => (childrenRef.current[i] = el)}
 									geometry={(child as Mesh).geometry}
 								>

@@ -102,7 +102,7 @@ const InfoLocations: Record<string, InfoData> = {
 		},
 	},
 
-	CED: {
+	CHANG: {
 		pos: {
 			x: 3.67,
 			y: 1.4,

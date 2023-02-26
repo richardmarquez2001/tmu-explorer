@@ -2,14 +2,14 @@
 import * as TWEEN from "@tweenjs/tween.js";
 import { OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { Vector3 } from "three/src/Three";
 
 // Components
 import RenderField from "./webgl/RenderField";
 
 // Utils
-import {InfoLocations} from "../utils/InfoLocations";
+import { InfoLocations } from "../utils/InfoLocations";
 
 export default function Experience({ location }: { location: string }) {
 	const camPosition = useThree((state) => state.camera);
@@ -39,13 +39,15 @@ export default function Experience({ location }: { location: string }) {
 		}
 	}, [location]);
 
+	useLayoutEffect(() => {
+
+	},[])
 	useFrame(() => {
 		// Every frame update the tween and orbit controls
 		TWEEN.update();
 		if (controlRef.current) {
 			controlRef.current.update();
 		}
-		// console.log(camPosition.position);
 	});
 	return (
 		<>
@@ -58,9 +60,8 @@ export default function Experience({ location }: { location: string }) {
 				dampingFactor={0.1}
 				rotateSpeed={0.5}
 			/>
-			<axesHelper />
-			<spotLight position={[0, 10, 0]} />
-			<ambientLight intensity={1.5} />
+			{/* <spotLight position={[0, 10, 0]} /> */}
+			<ambientLight intensity={1.75} />
 			<RenderField currentLoc={location} />
 		</>
 	);
