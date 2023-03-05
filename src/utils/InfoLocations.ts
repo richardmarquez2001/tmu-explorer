@@ -305,9 +305,9 @@ const InfoLocations: Record<string, InfoData> = {
 	},
 	RESET: {
 		pos: {
-			x: 10,
+			x: 0,
 			y: 4,
-			z: 0,
+			z: -10,
 		},
 		target: {
 			x: 0,

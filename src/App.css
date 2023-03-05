@@ -23,7 +23,7 @@ html {
 }
 
 .mobile-screen {
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.9);
 	font-size: 4rem;
 	color: white;
 }
@@ -56,12 +56,9 @@ html {
 	padding: 2rem;
 	background: url("../public/infoBackground.png");
 	font-size: 1.2rem;
+	overflow-y: auto;
 }
 
-.scrollable-body {
-	overflow-y: scroll;
-	height: 16rem;
-}
 .txt-sm {
 	font-size: 1.25rem;
 }
@@ -100,17 +97,15 @@ html {
 }
 
 @keyframes logoAnim {
-	from {
+	0% {
 		transform: rotate(0deg);
 	}
-	to {
+	100% {
 		transform: rotate(360deg);
 	}
 }
 
 .loader-icon {
 	transform: rotate(0deg);
-	animation-name: logoAnim;
-	animation-duration: 1s;
-	animation-repeat: infinite;
+	animation: logoAnim 1s infinite;
 }

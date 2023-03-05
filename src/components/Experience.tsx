@@ -3,7 +3,7 @@ import * as TWEEN from "@tweenjs/tween.js";
 import { OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useLayoutEffect, useRef } from "react";
-import { Vector3 } from "three/src/Three";
+import { Fog, Vector3 } from "three/src/Three";
 
 // Components
 import RenderField from "./webgl/RenderField";
@@ -35,13 +35,11 @@ export default function Experience({ location }: { location: string }) {
 				posTween.start();
 			}
 		} else {
-			camPosition.position.set(10, 4, 0);
+			camPosition.position.set(0, 8, -8);
 		}
 	}, [location]);
 
-	useLayoutEffect(() => {
-
-	},[])
+	useLayoutEffect(() => {}, []);
 	useFrame(() => {
 		// Every frame update the tween and orbit controls
 		TWEEN.update();
