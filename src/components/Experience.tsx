@@ -54,7 +54,11 @@ export default function Experience({ location }: { location: string }) {
 				ref={controlRef}
 				enableDamping
 				enableZoom
+				maxPolarAngle={Math.PI / 2}
+				maxDistance={12}
+				minDistance={6}
 				enableRotate={true}
+				enablePan={false}
 				dampingFactor={0.1}
 				rotateSpeed={0.5}
 			/>
