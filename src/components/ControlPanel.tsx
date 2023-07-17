@@ -28,6 +28,7 @@ export default function ControlPanel() {
 		<>
 			{controls.map((control) => (
 				<div
+					key={control.text}
 					className="row justify-center items-center row-col"
 					style={{
 						width: "14rem",
