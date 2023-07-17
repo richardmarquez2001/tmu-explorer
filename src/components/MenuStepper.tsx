@@ -7,7 +7,7 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 function PaperComponent(paperProps: any, ref: any) {
 	return (
 		<Grow in>
-			<Paper className="bl" {...paperProps} ref={ref} />
+			<Paper elevation={4} className="bl" {...paperProps} ref={ref} />
 		</Grow>
 	);
 }

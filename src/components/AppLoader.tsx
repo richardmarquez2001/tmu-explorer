@@ -1,9 +1,11 @@
 import { useProgress } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import * as TWEEN from "@tweenjs/tween.js";
-
+import { Dialog, DialogTitle, Button } from "@mui/material";
+import ControlPanel from "./ControlPanel";
 export default function AppLoader() {
 	const [stopEnter, setStopEnter] = useState(true);
+	const [passUser, setPassUser] = useState(false);
 	const [cleanProgress, setCleanProgress] = useState(0);
 
 	const { loaded, total } = useProgress();
@@ -50,5 +52,36 @@ export default function AppLoader() {
 				</div>
 			</div>
 		</div>
-	) : null;
+	) : (
+		<Dialog open={!stopEnter && !passUser}>
+			<div className="glass-back" style={{ width: "36rem", height: "20rem" }}>
+				<DialogTitle sx={{ background: "#0049cf", color: "#fff" }}>
+					CONTROLS
+				</DialogTitle>
+				<div className="row justify-center items-center">
+					<ControlPanel />
+				</div>
+
+				<div
+					style={{
+						position: "absolute",
+						bottom: 0,
+						left: 0,
+						right: 0,
+						margin: "auto",
+						width: "max-content",
+						padding: 20,
+					}}
+				>
+					<Button
+						variant="outlined"
+						color="primary"
+						onClick={() => setPassUser(true)}
+					>
+						Makes sense to me!
+					</Button>
+				</div>
+			</div>
+		</Dialog>
+	);
 }

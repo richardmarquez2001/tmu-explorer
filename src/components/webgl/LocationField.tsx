@@ -105,13 +105,11 @@ export default function LocationField() {
 					transform
 				>
 					{location !== "RESET" && location !== "" && (
-						<>
-							<div
-								className={`info-bubble-${InfoLocations[location].header.placement}`}
-							>
-								{InfoLocations[location].data?.name}
-							</div>
-						</>
+						<div
+							className={`info-bubble-${InfoLocations[location].header.placement}`}
+						>
+							{InfoLocations[location].data?.name}
+						</div>
 					)}
 				</Html>
 				<planeGeometry args={[2, 1.5]} />

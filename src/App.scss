@@ -60,10 +60,9 @@ html {
 	}
 }
 
-.about-width {
-	max-width: 66%;
+.row-col {
+	flex-direction: column;
 }
-
 .mobile-screen {
 	background: rgba(0, 0, 0, 0.9);
 	font-size: 4rem;
@@ -75,69 +74,14 @@ html {
 	transition: 0.2s;
 }
 
-.enter-button {
-	padding: 32px;
-	border-radius: 20rem;
-	transition: 0.2s;
-}
-
-.enter-button:hover {
-	background: black;
-	color: white;
-	cursor: pointer;
-}
-
 .refresh-icon {
 	&:hover {
 		cursor: pointer;
 	}
 }
 
-.screen-overlay-right {
-	position: absolute;
-	right: 0rem;
-	top: 0rem;
-	height: 28rem;
-	z-index: 900;
-	background: white;
-	/* background: url("../public/infoBackground.png"); */
-	font-size: 1.2rem;
-	overflow-y: auto;
-
-	background: rgba(255, 255, 255, 0.3);
-	border-radius: 16px;
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(2rem);
-	-webkit-backdrop-filter: blur(2rem);
-}
-
-.blur-background {
-	background: rgba(255, 255, 255, 0.17);
-	border-radius: 16px;
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(16px);
-	-webkit-backdrop-filter: blur(9.5px);
-}
-
-.txt-sm {
-	font-size: 1.25rem;
-}
-
 .txt-lg {
 	font-size: 3rem;
-}
-
-.txt-md {
-	font-size: 2rem;
-}
-.txt-bold {
-	font-weight: 600;
-}
-.info-option {
-	text-decoration: none;
-	letter-spacing: 4px;
-	padding-left: 2rem;
-	color: #003594;
 }
 
 .w-full {
@@ -153,8 +97,8 @@ html {
 	padding: 0.5rem 1rem;
 	margin: 1rem;
 	background: #003594;
+
 	color: white;
-	/* border-radius: 1.125rem 1.125rem 1.125rem 0; */
 
 	min-height: 2.25rem;
 	width: fit-content;
@@ -178,11 +122,6 @@ html {
 	}
 }
 
-.info-option:hover {
-	text-decoration: underline;
-	cursor: pointer;
-}
-
 .padding-side {
 	padding-left: 2rem;
 	&-sm {
@@ -204,14 +143,6 @@ html {
 	&.items-center {
 		align-items: center;
 	}
-}
-
-.loading-text {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	font-size: 16rem;
-	color: #e3e3e3;
 }
 
 @keyframes logoAnim {

@@ -35,7 +35,6 @@ export default function AppOverlay() {
 					target="_blank"
 					rel="noreferrer"
 					size="large"
-					color="primary"
 				>
 					Support
 				</Button>
