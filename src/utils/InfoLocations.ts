@@ -19,18 +19,19 @@ const PLACEMENT = {
 	RIGHT_UP: "tr",
 	RIGHT_DOWN: "br",
 };
+
 export interface InfoData {
 	pos: coords;
 	target: coords;
 	header: coords;
 	data?: {
 		name: string;
-		about: string;
+		about?: string;
 		access?: string;
 		available?: {
 			[key: string]: string;
 		};
-		address: string;
+		address?: string;
 	};
 	streets?: Array<streetData>;
 }
@@ -75,6 +76,35 @@ const InfoLocations: Record<string, InfoData> = {
 		],
 		data: {
 			name: "Young-Dundas Square",
+			available: {
+				primary: "Monday - Tuesday | 11",
+			},
+			address: "10 Dundas Street East",
+			access:
+				"Access to Ryerson spaces in this building is only permitted with an authorized OneCard.",
+			about: `Twelve theatres in the Cineplex Odeon Yonge & Dundas Cinemas are used to run Toronto Metropolitan University lectures.`,
+		},
+	},
+	TRSM: {
+		pos: {
+			x: 12,
+			y: 1.5,
+			z: -7,
+		},
+		target: {
+			x: 12,
+			y: 1,
+			z: -8,
+		},
+		header: {
+			x: 12,
+			y: 2.25,
+			z: -8,
+			distance: 4,
+			placement: PLACEMENT.RIGHT_DOWN,
+		},
+		data: {
+			name: "Ted Rogers School of Management",
 			available: {
 				primary: "Monday - Tuesday | 11",
 			},
@@ -151,26 +181,6 @@ const InfoLocations: Record<string, InfoData> = {
 			distance: 5,
 			placement: PLACEMENT.LEFT_DOWN,
 		},
-		streets: [
-			{
-				name: "GOULD ST.",
-				coords: {
-					x: 7.5,
-					y: 0.1,
-					z: -0.1,
-					rot: Math.PI,
-				},
-			},
-			{
-				name: "YONGE ST.",
-				coords: {
-					x: 8,
-					y: 0.1,
-					z: 2,
-					rot: -Math.PI / 2,
-				},
-			},
-		],
 		data: {
 			name: "Podium",
 			access:
@@ -182,7 +192,50 @@ const InfoLocations: Record<string, InfoData> = {
 			about: `Runs the length of the Victoria Street pedestrian walkway, linking the Library Building and Jorgenson Hall. Provides students with Financial Aid services, Enrollment Services & Student Fees, Undergraduate Admissions and Recruitment, Tri-Mentoring Program, Access Centre, Student Fees Office, Career Development & Employment Centre, Discrimination & Harassment Prevention Services`,
 		},
 	},
-
+	LIB: {
+		pos: {
+			x: 3,
+			y: 1.25,
+			z: 4,
+		},
+		target: {
+			x: 5,
+			y: 0.5,
+			z: 4,
+		},
+		header: {
+			x: 4,
+			y: 0.5,
+			z: 4.15,
+			distance: 5,
+			placement: PLACEMENT.LEFT_UP,
+		},
+		data: {
+			name: "Library Building",
+		},
+	},
+	JOR: {
+		pos: {
+			x: 2.7,
+			y: 1.92,
+			z: 5,
+		},
+		target: {
+			x: 5,
+			y: 0.5,
+			z: 6,
+		},
+		header: {
+			x: 4.5,
+			y: 1.75,
+			z: 6.5,
+			distance: 5,
+			placement: PLACEMENT.LEFT_DOWN,
+		},
+		data: {
+			name: "Jorgenson Hall",
+		},
+	},
 	CHANG: {
 		pos: {
 			x: 3.67,
@@ -200,26 +253,6 @@ const InfoLocations: Record<string, InfoData> = {
 			z: -2.5,
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
-		streets: [
-			{
-				name: "GOULD ST.",
-				coords: {
-					x: -1.5,
-					y: 0.1,
-					z: 0.3,
-					rot: Math.PI * 2,
-				},
-			},
-			{
-				name: "VICTORIA ST.",
-				coords: {
-					x: 3.9,
-					y: 0.1,
-					z: -1,
-					rot: Math.PI / 2,
-				},
-			},
-		],
 		data: {
 			name: "The Chang School of Continuing Education",
 			access:
@@ -230,6 +263,27 @@ const InfoLocations: Record<string, InfoData> = {
 			},
 			address: "297 Victoria Street",
 			about: `Home to The G. Raymond Chang School of Continuing Education. Maintains the original art-deco facade of the original structure, which includes splendid carvings by acclaimed sculptor Frances Loring.`,
+		},
+	},
+	IMA: {
+		pos: {
+			x: 3.2,
+			y: 1.4,
+			z: -1,
+		},
+		target: {
+			x: 0,
+			y: 0,
+			z: -2,
+		},
+		header: {
+			x: 1.5,
+			y: 1.15,
+			z: -1,
+			placement: PLACEMENT.RIGHT_DOWN,
+		},
+		data: {
+			name: "The Image Arts Building",
 		},
 	},
 	VIC: {
@@ -250,26 +304,6 @@ const InfoLocations: Record<string, InfoData> = {
 			distance: 4.5,
 			placement: PLACEMENT.LEFT_DOWN,
 		},
-		streets: [
-			{
-				name: "GOULD ST.",
-				coords: {
-					x: -1.5,
-					y: 0.1,
-					z: 0.3,
-					rot: Math.PI * 2,
-				},
-			},
-			{
-				name: "DUNDAS ST E.",
-				coords: {
-					x: 2,
-					y: 0.1,
-					z: -6.65,
-					rot: Math.PI * 2,
-				},
-			},
-		],
 		data: {
 			name: "Victoria Building",
 			access:
@@ -300,26 +334,6 @@ const InfoLocations: Record<string, InfoData> = {
 			z: -4.8,
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
-		streets: [
-			{
-				name: "BOND ST.",
-				coords: {
-					x: 0.35,
-					y: 0.1,
-					z: -1,
-					rot: Math.PI / 2,
-				},
-			},
-			{
-				name: "DUNDAS ST E.",
-				coords: {
-					x: -1,
-					y: 0.1,
-					z: -7.15,
-					rot: Math.PI,
-				},
-			},
-		],
 		data: {
 			name: "Daphne Cockwell Health Sciences Complex",
 			access: "Entry is only permitted with an authorized OneCard",
@@ -344,26 +358,6 @@ const InfoLocations: Record<string, InfoData> = {
 			z: -1.5,
 			placement: PLACEMENT.LEFT_DOWN,
 		},
-		streets: [
-			{
-				name: "BOND ST.",
-				coords: {
-					x: -3.5,
-					y: 0.1,
-					z: -5,
-					rot: -Math.PI / 2,
-				},
-			},
-			{
-				name: "GOULD ST.",
-				coords: {
-					x: -1.5,
-					y: 0.1,
-					z: 0.3,
-					rot: Math.PI * 2,
-				},
-			},
-		],
 		data: {
 			name: "Student Campus Center",
 			access:
@@ -375,6 +369,27 @@ const InfoLocations: Record<string, InfoData> = {
 			},
 			address: "55 Gould Street",
 			about: `Originally the site of the head office of Toronto's Roman Catholic Archdiocese. The newly built centre wraps around and is fully integrated with historic Oakham House.`,
+		},
+	},
+	OAK: {
+		pos: {
+			x: -2,
+			y: 1.25,
+			z: -0.5,
+		},
+		target: {
+			x: 1,
+			y: 0,
+			z: -2,
+		},
+		header: {
+			x: -1,
+			y: 0.25,
+			z: -1,
+			placement: PLACEMENT.LEFT_DOWN,
+		},
+		data: {
+			name: "Oakham House",
 		},
 	},
 	ENG: {
@@ -394,26 +409,6 @@ const InfoLocations: Record<string, InfoData> = {
 			z: -2.1,
 			placement: PLACEMENT.LEFT_DOWN,
 		},
-		streets: [
-			{
-				name: "BOND ST.",
-				coords: {
-					x: -3.15,
-					y: 0.1,
-					z: -1,
-					rot: Math.PI / 2,
-				},
-			},
-			{
-				name: "GOULD ST.",
-				coords: {
-					x: -6,
-					y: 0.1,
-					z: 0.3,
-					rot: Math.PI * 2,
-				},
-			},
-		],
 		data: {
 			name: "George Vari Engineering and Computing Centre",
 			available: {
@@ -444,26 +439,6 @@ const InfoLocations: Record<string, InfoData> = {
 			z: 2.1,
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
-		streets: [
-			{
-				name: "CHURCH ST.",
-				coords: {
-					x: -3.15,
-					y: 0.1,
-					z: 5,
-					rot: Math.PI / 2,
-				},
-			},
-			{
-				name: "GOULD ST.",
-				coords: {
-					x: -3,
-					y: 0.1,
-					z: -0.1,
-					rot: Math.PI * 3,
-				},
-			},
-		],
 		data: {
 			name: "Rogers Communication Centre",
 			address: "80 Gould Street",
@@ -494,17 +469,6 @@ const InfoLocations: Record<string, InfoData> = {
 			distance: 4,
 			placement: PLACEMENT.LEFT_DOWN,
 		},
-		streets: [
-			{
-				name: "GOULD ST.",
-				coords: {
-					x: 2,
-					y: 0.1,
-					z: -0.1,
-					rot: Math.PI * 3,
-				},
-			},
-		],
 		data: {
 			name: "Kerr Hall",
 			available: {
@@ -535,26 +499,6 @@ const InfoLocations: Record<string, InfoData> = {
 			distance: 2,
 			placement: PLACEMENT.RIGHT_UP,
 		},
-		streets: [
-			{
-				name: "CHURCH ST.",
-				coords: {
-					x: -3.15,
-					y: 0.1,
-					z: 6,
-					rot: Math.PI / 2,
-				},
-			},
-			{
-				name: "GERRARD ST E.",
-				coords: {
-					x: 0,
-					y: 0.1,
-					z: 6.9,
-					rot: Math.PI * 3,
-				},
-			},
-		],
 		data: {
 			name: "Architecture Building",
 			address: "325 Church Street",
@@ -585,26 +529,6 @@ const InfoLocations: Record<string, InfoData> = {
 			overrideRot: -Math.PI / 1.25,
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
-		streets: [
-			{
-				name: "CHURCH ST.",
-				coords: {
-					x: -3.5,
-					y: 0.1,
-					z: 0,
-					rot: -Math.PI / 2,
-				},
-			},
-			{
-				name: "GERRARD ST E.",
-				coords: {
-					x: 0,
-					y: 0.1,
-					z: 6.9,
-					rot: Math.PI * 3,
-				},
-			},
-		],
 		data: {
 			name: "Pitman Hall",
 			available: {
@@ -633,26 +557,7 @@ const InfoLocations: Record<string, InfoData> = {
 			distance: 2.5,
 			placement: PLACEMENT.RIGHT_UP,
 		},
-		streets: [
-			{
-				name: "CHURCH ST.",
-				coords: {
-					x: -3.15,
-					y: 0.1,
-					z: 6,
-					rot: Math.PI / 2,
-				},
-			},
-			{
-				name: "GERRARD ST E.",
-				coords: {
-					x: -5,
-					y: 0.1,
-					z: 7.25,
-					rot: Math.PI * 2,
-				},
-			},
-		],
+
 		data: {
 			name: "Civil Engineering Building – Monetary Times",
 			address: "241 Church Street",

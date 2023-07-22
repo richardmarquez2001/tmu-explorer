@@ -23,6 +23,7 @@ const sources = [
 	"Square16",
 	"Square17",
 	"Square18",
+	"Square18_2",
 	"Square19",
 	"Square20",
 	"Square21",

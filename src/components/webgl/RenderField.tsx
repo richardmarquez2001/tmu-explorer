@@ -44,6 +44,7 @@ export default function RenderField() {
 	};
 
 	fieldList.current = nodeObjects.current.map((node, i) => {
+		if (nodes[node.name] === undefined) console.log(node.name, nodes);
 		return (
 			<group key={node.name + i}>
 				{isGroup(node.name) ? (

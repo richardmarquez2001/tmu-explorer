@@ -42,8 +42,6 @@ export default function ControlPanel() {
 							fontSize: "1.15rem",
 							textAlign: "center",
 							paddingTop: "0.75rem",
-							// paddingRight: "0.75rem",
-							// paddingLeft: "0.75rem",
 						}}
 					>
 						{control.text}

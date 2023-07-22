@@ -89,7 +89,7 @@ export default function LocationField() {
 				ref={controlRef}
 				enableDamping
 				enableZoom
-				maxPolarAngle={Math.PI / 2}
+				maxPolarAngle={Math.PI / 2.05}
 				maxDistance={20}
 				minDistance={6}
 				enableRotate={true}
