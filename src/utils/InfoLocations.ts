@@ -54,28 +54,8 @@ const InfoLocations: Record<string, InfoData> = {
 			distance: 4,
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
-		streets: [
-			{
-				name: "DUNDAS ST E.",
-				coords: {
-					x: 6.5,
-					y: 0.1,
-					z: -7.1,
-					rot: Math.PI,
-				},
-			},
-			{
-				name: "YONGE ST.",
-				coords: {
-					x: 8.5,
-					y: 0.1,
-					z: -1,
-					rot: Math.PI / 2,
-				},
-			},
-		],
 		data: {
-			name: "Young-Dundas Square",
+			name: "Young-Dundas Square 🎥",
 			available: {
 				primary: "Monday - Tuesday | 11",
 			},
@@ -104,7 +84,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
 		data: {
-			name: "Ted Rogers School of Management",
+			name: "Ted Rogers School of Management 👔",
 			available: {
 				primary: "Monday - Tuesday | 11",
 			},
@@ -132,28 +112,8 @@ const InfoLocations: Record<string, InfoData> = {
 			distance: 3,
 			placement: PLACEMENT.LEFT_DOWN,
 		},
-		streets: [
-			{
-				name: "GOULD ST.",
-				coords: {
-					x: 7.85,
-					y: 0.1,
-					z: -0.1,
-					rot: Math.PI,
-				},
-			},
-			{
-				name: "YONGE ST.",
-				coords: {
-					x: 8.5,
-					y: 0.1,
-					z: 5,
-					rot: Math.PI / 2,
-				},
-			},
-		],
 		data: {
-			name: "Student Learning Centre",
+			name: "Student Learning Centre 🏢",
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
@@ -182,7 +142,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.LEFT_DOWN,
 		},
 		data: {
-			name: "Podium",
+			name: "Podium 🔥",
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
@@ -211,7 +171,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.LEFT_UP,
 		},
 		data: {
-			name: "Library Building",
+			name: "Library Building 📚",
 		},
 	},
 	JOR: {
@@ -233,7 +193,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.LEFT_DOWN,
 		},
 		data: {
-			name: "Jorgenson Hall",
+			name: "Jorgenson Hall ⚖️",
 		},
 	},
 	CHANG: {
@@ -254,7 +214,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
 		data: {
-			name: "The Chang School of Continuing Education",
+			name: "The Chang School of Continuing Education 🎓",
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
@@ -283,7 +243,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
 		data: {
-			name: "The Image Arts Building",
+			name: "The Image Arts Building 🎨",
 		},
 	},
 	VIC: {
@@ -305,7 +265,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.LEFT_DOWN,
 		},
 		data: {
-			name: "Victoria Building",
+			name: "Victoria Building 🏛️",
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
@@ -335,7 +295,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
 		data: {
-			name: "Daphne Cockwell Health Sciences Complex",
+			name: "Daphne Cockwell Health Sciences Complex 🩺",
 			access: "Entry is only permitted with an authorized OneCard",
 			address: "288 Church Street",
 			about: `In addition to its role as a hub for interdisciplinary collaboration, the Daphne Cockwell Health Sciences Complex features a holistic approach to health and wellness and is a catalyst for innovation and excellence for sustainable building practices and city-building.`,
@@ -359,7 +319,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.LEFT_DOWN,
 		},
 		data: {
-			name: "Student Campus Center",
+			name: "Student Campus Center 🏫",
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
@@ -369,6 +329,28 @@ const InfoLocations: Record<string, InfoData> = {
 			},
 			address: "55 Gould Street",
 			about: `Originally the site of the head office of Toronto's Roman Catholic Archdiocese. The newly built centre wraps around and is fully integrated with historic Oakham House.`,
+		},
+	},
+	HEI: {
+		pos: {
+			x: -0.25,
+			y: 1,
+			z: -2,
+		},
+		target: {
+			x: -2,
+			y: 0,
+			z: -4,
+		},
+		header: {
+			x: 0,
+			y: 1,
+			z: -2.6,
+			overrideRot: Math.PI / 4,
+			placement: PLACEMENT.LEFT_DOWN,
+		},
+		data: {
+			name: "School of Graphic Communications Management 🖌️",
 		},
 	},
 	OAK: {
@@ -389,7 +371,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.LEFT_DOWN,
 		},
 		data: {
-			name: "Oakham House",
+			name: "Oakham House 🍲",
 		},
 	},
 	ENG: {
@@ -410,7 +392,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.LEFT_DOWN,
 		},
 		data: {
-			name: "George Vari Engineering and Computing Centre",
+			name: "George Vari Engineering and Computing Centre ⚙️",
 			available: {
 				primary: "Monday - Friday| 7am to 9pm",
 				secondary: "Saturday | 7am to 5:30pm",
@@ -440,7 +422,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
 		data: {
-			name: "Rogers Communication Centre",
+			name: "Rogers Communication Centre 📡",
 			address: "80 Gould Street",
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
@@ -463,14 +445,13 @@ const InfoLocations: Record<string, InfoData> = {
 			z: 4,
 		},
 		header: {
-			x: 1,
-			y: 0.1,
-			z: 2,
-			distance: 4,
+			x: 2,
+			y: 0.75,
+			z: 1,
 			placement: PLACEMENT.LEFT_DOWN,
 		},
 		data: {
-			name: "Kerr Hall",
+			name: "Kerr Hall 🏫",
 			available: {
 				primary: "Monday - Friday | 6am to 10:30pm",
 				secondary: "Saturday | 8am to 6pm",
@@ -489,7 +470,7 @@ const InfoLocations: Record<string, InfoData> = {
 		},
 		target: {
 			x: -8,
-			y: 0.5,
+			y: -0.5,
 			z: 5.5,
 		},
 		header: {
@@ -500,7 +481,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.RIGHT_UP,
 		},
 		data: {
-			name: "Architecture Building",
+			name: "Architecture Building 🏛️",
 			address: "325 Church Street",
 			available: {
 				primary: "Monday to Friday | 7:30 a.m. to 7:30 p.m",
@@ -513,24 +494,24 @@ const InfoLocations: Record<string, InfoData> = {
 	},
 	PIT: {
 		pos: {
-			x: -5,
+			x: -6,
 			y: 1.25,
 			z: 4,
 		},
 		target: {
-			x: -4,
+			x: -6,
 			y: 0.7,
-			z: 5,
+			z: 7,
 		},
 		header: {
 			x: -5.75,
-			y: 1.25,
-			z: 3.5,
-			overrideRot: -Math.PI / 1.25,
+			y: 1,
+			z: 4,
+			overrideRot: Math.PI,
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
 		data: {
-			name: "Pitman Hall",
+			name: "Pitman Hall 🏠",
 			available: {
 				primary: "24 hours a day, 7 days a week",
 			},
@@ -554,12 +535,13 @@ const InfoLocations: Record<string, InfoData> = {
 			x: -5.5,
 			y: 0.05,
 			z: 6.5,
-			distance: 2.5,
+			distance: 3,
+			overrideRot: Math.PI / 3.75,
 			placement: PLACEMENT.RIGHT_UP,
 		},
 
 		data: {
-			name: "Civil Engineering Building – Monetary Times",
+			name: "Civil Engineering Building 🏗️",
 			address: "241 Church Street",
 			available: {
 				primary: "Monday to Friday | 8 a.m. to 4:30 p.m.",
@@ -585,11 +567,12 @@ const InfoLocations: Record<string, InfoData> = {
 			x: 0.5,
 			y: 0.5,
 			z: 7.9,
+			overrideRot: -Math.PI / 1.15,
 			distance: 4,
 			placement: PLACEMENT.RIGHT_UP,
 		},
 		data: {
-			name: "Centre for Ubran Innovation",
+			name: "Centre for Ubran Innovation 🏙️",
 			address: "44 Gerrard Street East",
 			about: `Built in 1887 as the Ontario College of Pharmacy (the first of its kind in Canada), it is said to be haunted. The original plans show a cold storage room (currently a faculty office) where pharmacy students kept cadavers for the purposes of study.`,
 		},
@@ -613,7 +596,7 @@ const InfoLocations: Record<string, InfoData> = {
 			placement: PLACEMENT.RIGHT_DOWN,
 		},
 		data: {
-			name: "Mattamy Athletic Centre",
+			name: "Mattamy Athletic Centre 💪",
 			address: "50 Carlton Street",
 			available: {
 				primary: "Monday to Friday | 6 a.m. to 11:30 p.m.",

@@ -3,6 +3,7 @@ import { forwardRef, useState } from "react";
 import { useStore } from "../store/LocatonStore";
 import { InfoLocations } from "../utils/InfoLocations";
 import RefreshIcon from "@mui/icons-material/Refresh";
+console.warn = () => {}; // MUI Stinky warnings
 
 function PaperComponent(paperProps: any, ref: any) {
 	return (

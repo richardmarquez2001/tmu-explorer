@@ -1,23 +1,10 @@
-import { useState } from "react";
 import MenuStepper from "./MenuStepper";
 import CoffeeIcon from "@mui/icons-material/Coffee";
 import { Button } from "@mui/material";
 
 export default function AppOverlay() {
-	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-	window.addEventListener("resize", () => {
-		setScreenWidth(window.innerWidth);
-	});
-
 	return (
 		<div>
-			{/* Mobile overlay */}
-			{screenWidth < 600 && (
-				<div className="screen-overlay-full mobile-screen">
-					<div>Recommended experience on desktop</div>
-				</div>
-			)}
 			<div className="screen-overlay-left row flex-col">
 				<div className="row justify-center items-center">
 					<img src="/tmuBold.png" width={60} alt="tmu-exlorer title" />
@@ -25,7 +12,19 @@ export default function AppOverlay() {
 						TMU-Explorer
 					</h1>
 				</div>
-				<MenuStepper />
+				<div>
+					<div className="txt-xs" style={{ paddingBottom: "1rem" }}>
+						Created by{" "}
+						<a
+							href="https://github.com/oceansam"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Sam
+						</a>
+					</div>
+					<MenuStepper />
+				</div>
 			</div>
 			<div className="screen-overlay-bottom-right">
 				<Button

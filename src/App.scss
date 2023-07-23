@@ -11,6 +11,12 @@ html {
 	border: 2px solid red;
 }
 
+@media (max-width: 1023px) {
+	html {
+		font-size: 16px;
+	}
+}
+
 .screen-overlay-left {
 	position: absolute;
 	left: 4rem;
@@ -80,8 +86,25 @@ html {
 	}
 }
 
-.txt-lg {
-	font-size: 3rem;
+.txt {
+	&-xs {
+		font-size: 0.75rem;
+		color: #003594;
+		font-weight: 600;
+	}
+	&-center {
+		text-align: center;
+	}
+	&-disclaimer {
+		font-size: 0.75rem;
+		color: grey;
+	}
+	&-sm {
+		font-size: 1.5rem;
+	}
+	&-lg {
+		font-size: 3rem;
+	}
 }
 
 .w-full {
@@ -96,7 +119,7 @@ html {
 	box-sizing: border-box;
 	padding: 0.5rem 1rem;
 	margin: 1rem;
-	background: #003594;
+	background: #0771db;
 
 	color: white;
 

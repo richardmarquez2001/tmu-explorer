@@ -1,6 +1,6 @@
 // Libraries
 import * as TWEEN from "@tweenjs/tween.js";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Html, OrbitControls } from "@react-three/drei";
 import { Vector3 } from "three";
 
@@ -16,11 +16,17 @@ export default function LocationField() {
 	const cameraRef = useRef<any>();
 	const currentTween = useRef<any>();
 
+	// Handle fps tracking
+	const frameCount = useRef(0);
+	const prevTime = useRef(0);
+	const [fps, setFps] = useState(0);
+	const [showFpsAlert, setShowFpsAlert] = useState(false);
+
 	useThree((state) => (cameraRef.current = state.camera));
 
 	const camPosition = useThree((state) => state.camera);
-
 	const location = useStore((state) => state.currentLocation);
+	const setFpsWarning = useStore((state) => state.updateFpsWarning);
 
 	const resetElements = () => {
 		infoRef.current!.scale.set(1, 0, 0.2);
@@ -28,6 +34,7 @@ export default function LocationField() {
 			currentTween.current.stop();
 		}
 	};
+
 	useEffect(() => {
 		resetElements();
 		if (controlRef.current)
@@ -45,10 +52,10 @@ export default function LocationField() {
 			// Tween camera position & focal point
 			if (controlRef.current) {
 				const posTween = new TWEEN.Tween(camPosition.position)
-					.to(keyframe.position, 2000)
+					.to(keyframe.position, 2500)
 					.easing(TWEEN.Easing.Quintic.InOut);
 				const focTween = new TWEEN.Tween(controlRef.current.target)
-					.to(keyframe.focalPoint, 1500)
+					.to(keyframe.focalPoint, 2000)
 					.easing(TWEEN.Easing.Quintic.InOut);
 				focTween.start();
 				posTween.start();
@@ -74,7 +81,26 @@ export default function LocationField() {
 		}
 	}, [location]);
 
+	const handleFPSCall = () => {
+		// Edge case where startup causes fps to start at small number
+		if (fps < 30 && fps > 2 && !showFpsAlert) {
+			setFpsWarning(true);
+			setShowFpsAlert(true);
+		}
+	};
+
 	useFrame(() => {
+		frameCount.current += 1;
+		const time = performance.now();
+		const deltaTime = time - prevTime.current;
+
+		if (deltaTime >= 1000) {
+			setFps((frameCount.current / deltaTime) * 1000);
+			frameCount.current = 0;
+			prevTime.current = time;
+		}
+		handleFPSCall();
+
 		// Every frame update the tween and orbit controls
 		TWEEN.update();
 		if (controlRef.current) {
@@ -97,7 +123,6 @@ export default function LocationField() {
 				dampingFactor={0.1}
 				rotateSpeed={0.5}
 			/>
-
 			<mesh ref={infoRef}>
 				<Html
 					distanceFactor={InfoLocations[location]?.header?.distance || 3}
@@ -107,6 +132,7 @@ export default function LocationField() {
 					{location !== "RESET" && location !== "" && (
 						<div
 							className={`info-bubble-${InfoLocations[location].header.placement}`}
+							style={{ maxWidth: "20.5rem" }}
 						>
 							{InfoLocations[location].data?.name}
 						</div>
