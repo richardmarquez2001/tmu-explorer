@@ -119,7 +119,7 @@ export default function LocationField() {
 				maxDistance={20}
 				minDistance={6}
 				enableRotate={true}
-				enablePan={true}
+				enablePan={false}
 				dampingFactor={0.1}
 				rotateSpeed={0.5}
 			/>
