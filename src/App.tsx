@@ -13,6 +13,9 @@ function App() {
 	);
 
 	const theme = createTheme({
+		typography: {
+			fontFamily: 'Replica-Regular'
+		},
 		palette: {
 			primary: {
 				light: "#023fad",

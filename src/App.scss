@@ -1,183 +1,166 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap");
+@import "./css/fonts.scss";
+@import "./css/variables.scss";
 
-@import url("https://rsms.me/inter/inter.css");
-@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+@import "./components/InfoBubble/InfoBubble.scss";
 
 html {
-	/* font-family: "Oswald", sans-serif; */
-	font-family: "Inter", sans-serif;
+  font-family: "Replica-Regular", sans-serif;
 }
+
 .test {
-	border: 2px solid red;
+  border: 2px solid red; // this feels like that piece of code that breaks your app if you remove it
 }
 
 @media (max-width: 1023px) {
-	html {
-		font-size: 16px;
-	}
+  html {
+    font-size: 16px;
+  }
+}
+
+.app-loader {
+  &__title {
+    font-family: "Replica-Bold";
+    font-size: 24px;
+    text-align: center;
+    margin:0;
+  }
+}
+
+.app-overlay__title {
+  padding-left: 12px;
 }
 
 .screen-overlay-left {
-	position: absolute;
-	left: 4rem;
-	z-index: 900;
+  position: absolute;
+  left: 4rem;
+  z-index: 900;
 }
 
 .screen-overlay-middle {
-	position: absolute;
-	padding-bottom: 1rem;
-	padding-top: 1rem;
+  position: absolute;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 
-	bottom: 0rem;
-	width: 100%;
-	z-index: 20;
-	background: white;
+  bottom: 0rem;
+  width: 100%;
+  z-index: 20;
+  background: white;
 }
 
 .screen-overlay-bottom-right {
-	position: absolute;
-	bottom: 0rem;
-	right: 0rem;
-	padding-right: 0.5rem;
-	padding-bottom: 0.5rem;
-	z-index: 20;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
+  position: absolute;
+  bottom: 0rem;
+  right: 0rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .screen-overlay-full {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	display: flex;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	z-index: 999;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
 .coffee-button {
-	padding: 0.75rem;
-	background: white;
-	border-radius: 0.5rem;
-	&:hover {
-		cursor: pointer;
-		translate: transformY(0.25rem);
-	}
+  padding: 0.75rem;
+  background: white;
+  border-radius: 0.5rem;
+  &:hover {
+    cursor: pointer;
+    translate: transformY(0.25rem);
+  }
 }
 
 .row-col {
-	flex-direction: column;
+  flex-direction: column;
 }
 .mobile-screen {
-	background: rgba(0, 0, 0, 0.9);
-	font-size: 4rem;
-	color: white;
+  background: rgba(0, 0, 0, 0.9);
+  font-size: 4rem;
+  color: white;
 }
 
 .progress-element {
-	border-radius: 20rem;
-	transition: 0.2s;
+  border-radius: 20rem;
+  transition: 0.2s;
 }
 
 .refresh-icon {
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .txt {
-	&-xs {
-		font-size: 0.75rem;
-		color: #003594;
-		font-weight: 600;
-	}
-	&-center {
-		text-align: center;
-	}
-	&-disclaimer {
-		font-size: 0.75rem;
-		color: grey;
-	}
-	&-sm {
-		font-size: 1.5rem;
-	}
-	&-lg {
-		font-size: 3rem;
-	}
+  &-xs {
+    font-size: 0.75rem;
+    color: $blue;
+    font-weight: 600;
+  }
+  &-center {
+    text-align: center;
+  }
+  &-disclaimer {
+    font-size: 0.75rem;
+    color: $gray-dark;
+  }
+  &-sm {
+    font-size: 1.5rem;
+  }
+  &-lg {
+    font-size: 3rem;
+  }
 }
 
 .w-full {
-	width: 100%;
+  width: 100%;
 }
 
 .h-full {
-	height: 100%;
-}
-
-.info-bubble {
-	box-sizing: border-box;
-	padding: 0.5rem 1rem;
-	margin: 1rem;
-	background: #0771db;
-
-	color: white;
-
-	min-height: 2.25rem;
-	width: fit-content;
-
-	box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
-	&-tl {
-		@extend .info-bubble;
-		border-radius: 0 1.125rem 1.125rem 1.125rem;
-	}
-	&-bl {
-		@extend .info-bubble;
-		border-radius: 1.125rem 1.125rem 1.125rem 0;
-	}
-	&-tr {
-		@extend .info-bubble;
-		border-radius: 1.125rem 0 1.125rem 1.125rem;
-	}
-	&-br {
-		@extend .info-bubble;
-		border-radius: 1.125rem 1.125rem 0 1.125rem;
-	}
+  height: 100%;
 }
 
 .padding-side {
-	padding-left: 2rem;
-	&-sm {
-		padding-left: 0.25em;
-	}
+  padding-left: 2rem;
+  &-sm {
+    padding-left: 0.25em;
+  }
 }
 
 .row {
-	display: flex;
+  display: flex;
 
-	&.flex-col {
-		flex-direction: column;
-	}
+  &.flex-col {
+    flex-direction: column;
+  }
 
-	&.justify-center {
-		justify-content: center;
-	}
+  &.justify-center {
+    justify-content: center;
+  }
 
-	&.items-center {
-		align-items: center;
-	}
+  &.items-center {
+    align-items: center;
+  }
 }
 
 @keyframes logoAnim {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loader-icon {
-	transform: rotate(0deg);
-	animation: logoAnim 1s infinite;
+  transform: rotate(0deg);
+  animation: logoAnim 1s infinite;
 }

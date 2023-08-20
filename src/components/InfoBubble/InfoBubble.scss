@@ -1,0 +1,53 @@
+.info-bubble {
+	box-sizing: border-box;
+	padding: 0.5rem 1rem;
+	margin: 1rem;
+	background: $blue;
+
+	color: white;
+
+	min-height: 2.25rem;
+	width: fit-content;
+
+	box-shadow: 0 0 2rem rgba(black, 0.075), 0rem 1rem 1rem -1rem rgba(black, 0.1);
+
+	&__title {
+		font-family: 'Replica-Bold';
+		font-size: 20px;
+		margin-top: 4px;
+	}
+
+	&__text{
+		font-family: 'Replica-Regular';
+		font-size: 14px;
+		line-height: 20px;
+		margin-bottom: 8px;
+	}
+
+	&__available{
+		font-size: 14px;
+		margin-bottom: 8px;
+	}
+
+	&__caption {
+		font-size: 10px;
+		line-height: 14px;
+	}
+
+	&-tl {
+		@extend .info-bubble;
+		border-radius: 0 1.125rem 1.125rem 1.125rem;
+	}
+	&-bl {
+		@extend .info-bubble;
+		border-radius: 1.125rem 1.125rem 1.125rem 0;
+	}
+	&-tr {
+		@extend .info-bubble;
+		border-radius: 1.125rem 0 1.125rem 1.125rem;
+	}
+	&-br {
+		@extend .info-bubble;
+		border-radius: 1.125rem 1.125rem 0 1.125rem;
+	}
+}

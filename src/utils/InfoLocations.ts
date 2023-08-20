@@ -146,7 +146,7 @@ const InfoLocations: Record<string, InfoData> = {
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
-				primary: "Monday - Sunday | 5am, to 1am",
+				primary: "Monday - Sunday | 5:00am, to 1:00am",
 			},
 			address: "350 Victoria Street",
 			about: `Runs the length of the Victoria Street pedestrian walkway, linking the Library Building and Jorgenson Hall. Provides students with Financial Aid services, Enrollment Services & Student Fees, Undergraduate Admissions and Recruitment, Tri-Mentoring Program, Access Centre, Student Fees Office, Career Development & Employment Centre, Discrimination & Harassment Prevention Services`,
@@ -269,8 +269,8 @@ const InfoLocations: Record<string, InfoData> = {
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
-				primary: "Monday - Friday | 7am to 10:30pm",
-				secondary: "Saturday | 7am to 7pm",
+				primary: "Monday - Friday | 7:00am to 10:30pm",
+				secondary: "Saturday | 7:00am to 7:00pm",
 				tertiary: "Sunday | Card access only",
 			},
 			address: "285 Victoria Street",
@@ -323,9 +323,9 @@ const InfoLocations: Record<string, InfoData> = {
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
-				primary: "Monday & Thursday | 6am to 9pm",
-				secondary: "Tuesday & Wednesday | 6am to 8pm",
-				tertiary: "Friday - Sunday | 6am to 11pm",
+				primary: "Monday & Thursday | 6:00am to 9:00pm",
+				secondary: "Tuesday & Wednesday | 6:00am to 8:00pm",
+				tertiary: "Friday - Sunday | 6:00am to 11:00pm",
 			},
 			address: "55 Gould Street",
 			about: `Originally the site of the head office of Toronto's Roman Catholic Archdiocese. The newly built centre wraps around and is fully integrated with historic Oakham House.`,
@@ -394,9 +394,9 @@ const InfoLocations: Record<string, InfoData> = {
 		data: {
 			name: "George Vari Engineering and Computing Centre ⚙️",
 			available: {
-				primary: "Monday - Friday| 7am to 9pm",
-				secondary: "Saturday | 7am to 5:30pm",
-				tertiary: "Sunday | 7am to 5pm",
+				primary: "Monday - Friday | 7:00am to 9:00pm",
+				secondary: "Saturday | 7:00am to 5:30pm",
+				tertiary: "Sunday | 7:00am to 5:00pm",
 			},
 			address: "245 Church Street",
 			about: `Opened fall, 2005. Home for Electrical Engineering, Computer Engineering, Computer Science and Aerospace Engineering, and four major Civil Engineering labs. Topped by the award-winning Andrew and Valerie Pringle Environmental Green Roof.`,
@@ -427,8 +427,8 @@ const InfoLocations: Record<string, InfoData> = {
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
 			available: {
-				primary: "Monday - Friday | 7am to 10pm",
-				secondary: "Saturday | 7:30am to 6pm",
+				primary: "Monday - Friday | 7:00am to 10:00pm",
+				secondary: "Saturday | 7:30am to 6:00pm",
 			},
 			about: `Named in memory of broadcast pioneer Ted Rogers, Sr. The Centre houses four TV studios, including Canada's first three-camera HDTV television studio facility. Four Radio production suites allow for migration to four broadcast control rooms including one of the world's first Internet radio stations; SPIRITLive.`,
 		},
@@ -453,8 +453,8 @@ const InfoLocations: Record<string, InfoData> = {
 		data: {
 			name: "Kerr Hall 🏫",
 			available: {
-				primary: "Monday - Friday | 6am to 10:30pm",
-				secondary: "Saturday | 8am to 6pm",
+				primary: "Monday - Friday | 6:00am to 10:30pm",
+				secondary: "Saturday | 8:00am to 6:00pm",
 			},
 			address: "50 Gould Street",
 			access:
@@ -484,7 +484,7 @@ const InfoLocations: Record<string, InfoData> = {
 			name: "Architecture Building 🏛️",
 			address: "325 Church Street",
 			available: {
-				primary: "Monday to Friday | 7:30 a.m. to 7:30 p.m",
+				primary: "Monday to Friday | 7:30 am. to 7:30 pm",
 			},
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
@@ -544,7 +544,7 @@ const InfoLocations: Record<string, InfoData> = {
 			name: "Civil Engineering Building 🏗️",
 			address: "241 Church Street",
 			available: {
-				primary: "Monday to Friday | 8 a.m. to 4:30 p.m.",
+				primary: "Monday to Friday | 8:00 am to 4:30 pm",
 			},
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
@@ -599,8 +599,8 @@ const InfoLocations: Record<string, InfoData> = {
 			name: "Mattamy Athletic Centre 💪",
 			address: "50 Carlton Street",
 			available: {
-				primary: "Monday to Friday | 6 a.m. to 11:30 p.m.",
-				secondary: "Saturday and Sunday | 7 a.m. to 11:30 p.m.",
+				primary: "Monday to Friday | 6:00 am to 11:30 pm",
+				secondary: "Saturday and Sunday | 7:00 am to 11:30 pm",
 			},
 			access:
 				"Outside of these hours, entry is only permitted with an authorized OneCard. Hours are subject to change.",
